@@ -1,0 +1,241 @@
+/* ---
+--- 01 TYPOGRAPHY SYSTEM
+   - Font sizes (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+--- WHITESPACE
+   - SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+ */
+
+/* Importing Font-family link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* ******************************** */
+/* GENERAL CSS */
+/* ******************************** */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ******************************** */
+/* CONTAINER */
+/* ******************************** */
+
+.container {
+  padding: 4.8rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ******************************** */
+/* MINI COUPON CARD */
+/* ******************************** */
+
+.mini-coupon-card {
+  background: linear-gradient(135deg, #7158fe, #9d4de6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem;
+  gap: 2.4rem;
+  max-width: 40rem;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border-radius: 10px;
+  position: absolute;
+  transition: all 0.5s ease-out;
+  /* 1) Hide it visually */
+  opacity: 1;
+  /* 2) Make it unaccessible to mouse and keyboard */
+  pointer-events: all;
+  /* 3) Hide it from screen readers */
+  visibility: visible;
+}
+
+.open-coupon {
+  background-color: #fd3e47;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.open-coupon:hover {
+  background-color: #eb2932;
+}
+
+/* ******************************** */
+/* COUPON CARD */
+/* ******************************** */
+
+.coupon-card {
+  background: linear-gradient(135deg, #7158fe, #9d4de6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem 4.8rem;
+  gap: 3.2rem;
+  max-width: 80rem;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  position: relative;
+  /* 1) Hide it visually */
+  opacity: 0.6;
+  /* 2) Make it unaccessible to mouse and keyboard */
+  pointer-events: none;
+  /* 3) Hide it from screen readers */
+  visibility: visible;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  transition: opacity 4s ease;
+}
+
+.coupon-image {
+  width: 30%;
+}
+
+.coupon-description {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.coupon-code {
+  text-transform: uppercase;
+  display: flex;
+}
+
+.coupon-code p,
+.coupon-code button {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: 0.8rem 1.2rem;
+}
+
+.coupon-code p {
+  border: 2px dashed #fff;
+  border-right-style: none;
+}
+
+.coupon-code button {
+  color: #7158fe;
+  cursor: pointer;
+}
+
+.coupon-validity {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.coupon-code::after {
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.coupon-code::before {
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.close-coupon {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.close-coupon-button p {
+  max-width: 13rem;
+  padding: 0.5rem;
+  font-size: 1.8rem;
+  background-color: #fff;
+  color: #333;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(100%, 0%);
+  visibility: hidden;
+  font-weight: 500;
+}
+
+/* ******************************** */
+/* MEDIA QUERIES */
+/* ******************************** */
+
+@media (max-width: 56em) {
+  html {
+    font-size: 56.25%;
+  }
+  .coupon-image {
+    width: 35%;
+  }
+}
+
+@media (max-width: 37em) {
+  html {
+    font-size: 50%;
+  }
+  .coupon-image {
+    width: 50%;
+  }
+}
+
+@media (max-width: 25em) {
+  html {
+    font-size: 43%;
+  }
+  .coupon-image {
+    width: 50%;
+  }
+}
